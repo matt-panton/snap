@@ -1,0 +1,20 @@
+{
+    "name": "matt/snap",
+    "authors": [
+        {
+            "name": "Matt Panton",
+            "email": "matthewpanton@hotmail.co.uk"
+        }
+    ],
+    "require": {
+        "symfony/console": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Snap\\": "src/"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.2"
+    }
+}
