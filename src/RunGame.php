@@ -47,22 +47,10 @@ class RunGame extends Command
             foreach ($this->players as $i => $player) {
                 $handCard = $player->hand->drawCard();
                 $lastPileCard = $pile->lastCard();
-
-                if (is_null($handCard)) {
-                    $this->removePlayer($i);
-
-                    continue;
-                }
-
+                
                 $output->writeln(sprintf('%s drew %s of %s', $player->name(), $handCard->card(), $handCard->suit()));
-                    
-                if (is_null($lastPileCard)) {
-                    $pile->addCard($handCard);
 
-                    continue;
-                }
-
-                if ($handCard->card() === $lastPileCard->card()) {
+                if ( $lastPileCard && ($handCard->card() === $lastPileCard->card()) ){
                     $output->writeln([
                         '<comment>**</comment>',
                         sprintf('<comment>** SNAP - %s gains %d card(s) from the pile.</comment>', $player->name(), $pile->count()),
